@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div id='nav'></div>
+    <div id='content'></div>
+    <div id='footer'></div>
+</body>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    const navArray = [
+        {name: 'About', id: 'about'}, 
+        {name: 'Main', id: 'main'},
+        {name: 'Our team', id: 'team'},
+        {name: 'Our partners', id: 'partners'},
+        {name: 'Contacts', id: 'contacts'},
+    ]
+
+    const contentArray = [
+        {header: 'About us:', content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci omnis accusamus aliquam exercitationem soluta cum molestiae laboriosam corporis, inventore repellat at quibusdam nostrum commodi nihil temporibus aliquid accusantium molestias? Accusantium reiciendis nulla a officiis quis laudantium cumque dolorem id, quos voluptas modi expedita veritatis aliquam deleniti voluptatum, cum numquam ut?', id:'about'},
+        {header: 'The main information:',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates soluta quisquam quaerat, tempore, ullam dicta nostrum animi molestiae fuga libero alias voluptate obcaecati, reprehenderit unde id autem sunt nesciunt eos repellat accusantium ducimus! Aut repellendus explicabo odit ab, dolores maxime veritatis deserunt dolore magnam unde consequatur illum impedit asperiores hic at tempora aliquid, assumenda vel nulla quibusdam expedita quisquam soluta cupiditate enim! Unde dolore cum quae. Enim eos quo iste magnam harum libero doloremque maxime amet? Quibusdam minus unde quas ad ullam, itaque, hic amet adipisci perspiciatis labore qui! Sint, officia enim similique facilis cum perferendis doloribus veniam, et dicta placeat minus vitae nisi ut, laboriosam repellendus. Voluptas recusandae voluptatem corporis a, pariatur ad est? Ea incidunt aliquam ad vero repudiandae fugiat assumenda, saepe sit magnam voluptates sunt facilis obcaecati maxime dolorem ullam perferendis error harum alias quisquam tenetur amet exercitationem vitae. Quisquam earum quia voluptatem aliquam, ipsa fugit vitae!',
+        id:'main'},
+        {header: 'Our team:',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates soluta quisquam quaerat, tempore, ullam dicta nostrum animi molestiae fuga libero alias voluptate obcaecati, reprehenderit unde id autem sunt nesciunt eos repellat accusantium ducimus! Aut repellendus explicabo odit ab, dolores maxime veritatis deserunt dolore magnam unde consequatur illum impedit asperiores hic at tempora aliquid, assumenda vel nulla quibusdam expedita quisquam soluta cupiditate enim! Unde dolore cum quae. Enim eos quo iste magnam harum libero doloremque maxime amet? Quibusdam minus unde quas ad ullam, itaque, hic amet adipisci perspiciatis labore qui! Sint, officia enim similique facilis cum perferendis doloribus veniam, et dicta placeat minus vitae nisi ut, laboriosam repellendus. Voluptas recusandae voluptatem corporis a, pariatur ad est? Ea incidunt aliquam ad vero repudiandae fugiat assumenda, saepe sit magnam voluptates sunt facilis obcaecati maxime dolorem ullam perferendis error harum alias quisquam tenetur amet exercitationem vitae. Quisquam earum quia voluptatem aliquam, ipsa fugit vitae!',
+        id:'team'},
+        {header: 'Our partners:',
+        content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates soluta quisquam quaerat, tempore, ullam dicta nostrum animi molestiae fuga libero alias voluptate obcaecati, reprehenderit unde id autem sunt nesciunt eos repellat accusantium ducimus! Aut repellendus explicabo odit ab, dolores maxime veritatis deserunt dolore magnam unde consequatur illum impedit asperiores hic at tempora aliquid, assumenda vel nulla quibusdam expedita quisquam soluta cupiditate enim! Unde dolore cum quae. Enim eos quo iste magnam harum libero doloremque maxime amet? Quibusdam minus unde quas ad ullam, itaque, hic amet adipisci perspiciatis labore qui! Sint, officia enim similique facilis cum perferendis doloribus veniam, et dicta placeat minus vitae nisi ut, laboriosam repellendus. Voluptas recusandae voluptatem corporis a, pariatur ad est? Ea incidunt aliquam ad vero repudiandae fugiat assumenda, saepe sit magnam voluptates sunt facilis obcaecati maxime dolorem ullam perferendis error harum alias quisquam tenetur amet exercitationem vitae. Quisquam earum quia voluptatem aliquam, ipsa fugit vitae!',
+        id:'partners'},
+    ]
+
+        const nav = navArray.map((i)=><a href = {'#'+i.id}> {i.name}</a>);
+
+        const content = contentArray.map((i)=> 
+        <div className="chapter">
+            <h2 className="chapter-header" id={i.id}>
+                {i.header}
+            </h2>
+            <p className="chapter-content">
+                {i.content}
+            </p>
+        </div>);
+
+    ReactDOM.render (
+        nav,
+        document.getElementById('nav')
+    );
+
+    ReactDOM.render (
+        content,
+        document.getElementById('content')
+    );
+
+</script>
+</html>
