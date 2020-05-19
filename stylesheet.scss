@@ -4,43 +4,90 @@ $nav_height: 30px;
 $main_bgc: rgb(9, 49, 124);
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
-#nav {
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 40px;
+}
+
+.content {
+
+  %header-footer {
+    width: 100%;
+    background-color: $nav_bgc;
+    color: $nav_color;
+  }
+
+  .nav {
+    @extend %header-footer;
     z-index: 1;
     position: fixed;
-    width: 100%;
-    height: $nav_height;;
+    height: $nav_height;
     top: 0;
     left: 0;
     padding-right: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: $nav_bgc;
-    
+        
     a {
-        color: $nav_color;
-        margin: 5px;
-        text-decoration: none;
+      margin: 5px;
+      text-decoration: none;
+      color: $nav_color;
     }
-}
+  }
 
-#content {
-    .chapter {
-        margin-top: 40px;
-    }
+  .section {
     width: 40%;
-    margin: auto;
+    margin: 40px auto 20px;
     @media (max-width: 992px) {
         width: 90%;
     }
 
-    h2 {
-        margin: 20px 0;
+    .section-header {
+      margin: 20px 0;
     }
+
+    .section-content {
+      text-align: justify;
+      @media (max-width: 992px) {
+        text-align: left;
+      }
+    }
+  }
+
+  form {
+    background-color: rgb(196, 190, 190);
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+
+    input {
+      margin: 3px;
+      padding: 3px;
+    }
+
+    button {
+      outline: none;
+      padding: 3px;
+      margin: 3px;
+      border-radius: 5px;
+    }
+  }
+
+  .footer {
+    @extend %header-footer;
+    padding: 10px;
+    ul {
+      padding-left: 20px;
+      li {
+        list-style-type: none;
+      }
+    }
+  }
 }
