@@ -2,6 +2,7 @@ $nav_bgc: rgb(1, 34, 94);
 $nav_color: #fff;
 $nav_height: 30px;
 $main_bgc: rgb(9, 49, 124);
+$form_bgc: rgb(196, 190, 190);
 
 * {
   margin: 0;
@@ -13,6 +14,7 @@ $main_bgc: rgb(9, 49, 124);
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
+  font-family: sans-serif;
 }
 
 .content {
@@ -62,14 +64,51 @@ html {
   }
 
   form {
-    background-color: rgb(196, 190, 190);
+    background-color: $form_bgc;
     width: 50%;
+    @media (max-width: 992px) {
+      width: 85%;
+    }
     margin: 50px auto;
     padding: 20px;
+    
+    .title {
+      background-color: $form_bgc;
+      padding: 5px 15px;
+      border-radius: 5px;
+      top: -30px;
+      left: -20px;
+    }
 
-    input {
+    li {
+      list-style-type: none;
+
+      &.form-footer {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        a {
+          display: inline-block;
+        }
+      }
+    }
+
+    %input {
+      width: 40%;
       margin: 3px;
       padding: 3px;
+      padding-left: 7px;
+      border-radius: 4px;
+    }
+
+    input[type="text"] {
+      @extend %input;
+    }
+
+    input[type="password"] {
+      @extend %input;
     }
 
     button {
@@ -77,7 +116,31 @@ html {
       padding: 3px;
       margin: 3px;
       border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1em;
+
+      &[disabled] {
+        cursor: default;
+      }
     }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .center-align {
+      display: flex;
+      justify-content: space-between!important;
+      align-items: center;
+    }
+
+  }
+
+  .button-img {
+    width: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
   }
 
   .footer {

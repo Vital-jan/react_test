@@ -76,11 +76,48 @@
       if (this.getAuthorizedUserName ()) {
         formContent = <button> Sign out </button>
       };
+
       formContent = <label>
-        <input type="text" placeholder="Your name:"/>
-        <input type="password" placeholder="Password:"/>
-        <button>Sign in</button>
+        <span className="title">{this.props.title}</span>
+        <ul>
+          <li>
+            <input type="text" name = "lastname" className = "requirement" placeholder="Прізвище"/>
+          </li>
+          <li>
+            <input type="text" name = "firstname" className = "requirement" placeholder="Ім'я"/>
+            </li>
+          <li>
+            <input type="text" name = "surname" placeholder="По батькові (не обов'язково)"/>
+            </li>
+          <li>
+            <input type="text" name = "company" className = "requirement" placeholder="Назва компанії"/>
+          </li>
+          <li>
+            <input type="text" name = "email" className = "requirement" placeholder="Електрона пошта"/>
+          </li>
+          <li>
+            <input type="password" name = "password" className = "requirement" placeholder="Пароль"/>
+          </li>
+          <li>
+            <input type="password" name = "password2" className = "requirement" placeholder="Повторіть пароль"/>
+          </li>
+          <li className = "form-footer">
+            <input type="checkbox"/>
+            <span>Реєструючись, Ви погоджуєтесь з призначеною для користувача&nbsp;<a href="">угодою</a></span>
+          </li>
+          <li className = "form-footer center-align">
+            <span>
+              <button disabled = "disabled">Зареєструватись</button>
+              <button disabled = "disabled">Увійти</button>
+            </span>
+            <span className = "center-align"><span>Увійти з допомогою:</span>
+              <img className = "button-img" src="img/fb_logo_100.png"/>
+              <img className = "button-img" src="img/gmail_logo_100.png"/>
+            </span>
+          </li>
+        </ul>
       </label>
+
       return <form name = "authorization" className="form-authorization" id="authorize">
         {formContent}
         </form>
@@ -106,7 +143,7 @@ const content =
 
       <MainContent/>
 
-      <Authorization/>
+      <Authorization title="Реєстрація"/>
 
       <Contacts/>
 

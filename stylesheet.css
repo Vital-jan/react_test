@@ -9,6 +9,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
+  font-family: sans-serif;
 }
 
 .content .nav, .content .footer {
@@ -73,9 +74,48 @@ html {
   padding: 20px;
 }
 
-.content form input {
+@media (max-width: 992px) {
+  .content form {
+    width: 85%;
+  }
+}
+
+.content form .title {
+  background-color: #c4bebe;
+  padding: 5px 15px;
+  border-radius: 5px;
+  top: -30px;
+  left: -20px;
+}
+
+.content form li {
+  list-style-type: none;
+}
+
+.content form li.form-footer {
+  width: 100%;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content form li.form-footer a {
+  display: inline-block;
+}
+
+.content form input[type="text"], .content form input[type="password"] {
+  width: 40%;
   margin: 3px;
   padding: 3px;
+  padding-left: 7px;
+  border-radius: 4px;
 }
 
 .content form button {
@@ -83,6 +123,35 @@ html {
   padding: 3px;
   margin: 3px;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.content form button[disabled] {
+  cursor: default;
+}
+
+.content form input[type="checkbox"] {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.content form .center-align {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+          justify-content: space-between !important;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .button-img {
+  width: 1.5em;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
 .content .footer {
