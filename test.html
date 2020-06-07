@@ -30,7 +30,7 @@
 
     render() {
       return <div className = "nav">
-          { this.navArray.map ( (i, n) => <a href = {'#' + i.id} key = {'nav' + n} > {i.name} </a> )}
+          { this.navArray.map ( (i, n) => <a href = {`#${i.id}`} key = {`nav${n}`} > {i.name} </a> )}
         </div>
     }
   }
@@ -49,10 +49,13 @@
       content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates soluta quisquam quaerat, tempore, ullam dicta nostrum animi molestiae fuga libero alias voluptate obcaecati, reprehenderit unde id autem sunt nesciunt eos repellat accusantium ducimus! Aut repellendus explicabo odit ab, dolores maxime veritatis deserunt dolore magnam unde consequatur illum impedit asperiores hic at tempora aliquid, assumenda vel nulla quibusdam expedita quisquam soluta cupiditate enim! Unde dolore cum quae. Enim eos quo iste magnam harum libero doloremque maxime amet? Quibusdam minus unde quas ad ullam, itaque, hic amet adipisci perspiciatis labore qui! Sint, officia enim similique facilis cum perferendis doloribus veniam, et dicta placeat minus vitae nisi ut, laboriosam repellendus. Voluptas recusandae voluptatem corporis a, pariatur ad est? Ea incidunt aliquam ad vero repudiandae fugiat assumenda, saepe sit magnam voluptates sunt facilis obcaecati maxime dolorem ullam perferendis error harum alias quisquam tenetur amet exercitationem vitae. Quisquam earum quia voluptatem aliquam, ipsa fugit vitae!',
       id:'partners'},
     ]
-
+    constructor (props) {
+      super(props);
+      this.state = {color: 'darkgreen'};
+    }
     render () {
       return this.contentArray.map((i, n)=> 
-      <div className="section" key = {'section' + n}>
+      <div className="section" key = {'section' + n} style={{color: this.state.color}}>
           <h2 className="section-header" id={i.id} key = {'section-header' + n}>
               {i.header}
           </h2>
@@ -125,9 +128,26 @@
   }
 
   class Contacts extends React.Component {
+    constructor (props) {
+      super(props);
+      this.state = {color: this.props.color};
+    }
+    
+    componentDidMount () {
+      console.log('Contacts did mount')
+    }
+    
+    clickHandler() {
+      this.setState({color: 'blue'})
+      console.log(MainContent.state)
+      // MainContent.setState ({color: 'darkgreen'});
+      // this.forceUpdate();
+      console.log(this.state)
+    }
+
     render () {
-      return <div className="footer" id="contacts">
-        <h2>Contact us:</h2>
+      return <div className="footer" id="contacts" onClick={()=>{this.clickHandler()}}>
+        <h2 style={{color: this.state.color}}>Contact us:</h2>
         <ul>
           <li>+38 050 555 55 55</li>
           <li>email: asd@asdf.com</li>
@@ -141,11 +161,11 @@ const content =
 
       <NavBar/>
 
-      <MainContent/>
+      <MainContent color="red"/>
 
       <Authorization title="Реєстрація"/>
 
-      <Contacts/>
+      <Contacts color="green"/>
 
     </div>
 
